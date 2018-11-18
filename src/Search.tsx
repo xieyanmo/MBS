@@ -1,4 +1,4 @@
-import { Select, Icon } from "antd";
+import { Select, Icon, Button } from "antd";
 import * as React from "react";
 import room from "./Room.json";
 import styled from "styled-components";
@@ -100,6 +100,7 @@ interface IProps {
     onChange?: (value: string) => void;
     value: string | null;
     onClick: (col: number, row: number) => void;
+    onCancel: () => void;
 }
 
 export default class Search extends React.PureComponent<IProps> {
@@ -137,7 +138,8 @@ export default class Search extends React.PureComponent<IProps> {
                                 .indexOf(input.toLowerCase()) >= 0
                         }
                         onChange={this.handleChange}
-                        style={{ width: 320 }}
+                        style={{ width: 240 }}
+                        value={this.props.value || ''}
                     >
                         {Object.keys(room).map((objectName, index) => {
                             return (
@@ -150,6 +152,7 @@ export default class Search extends React.PureComponent<IProps> {
                             );
                         })}
                     </Select>
+                    <Button onClick={this.props.onCancel}>Cancel</Button>
                     {this.props.value && (
                         <div className="info">
                             <ul>

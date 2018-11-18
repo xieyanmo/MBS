@@ -25,8 +25,8 @@ class App extends Component<{}, { value: string | null }> {
     componentDidUpdate(prevProps: {}, prevState: { value: string | null }) {
         const { value: currValue } = this.state;
         const { value: prevValue } = prevState;
-        if (this.gird) {
-            this.gird.switchObject(prevValue, currValue!);
+        if (this.gird && currValue) {
+            this.gird.switchObject(prevValue, currValue);
         }
     }
 
@@ -34,10 +34,16 @@ class App extends Component<{}, { value: string | null }> {
         this.gird && this.gird.focusObject(col, row);
     };
 
+    handleCancel = () => {
+        this.gird && this.state.value && this.gird.cancel(this.state.value);
+        this.setState({ value: null });
+    };
+
     render() {
         return (
             <div className="App">
                 <Search
+                    onCancel={this.handleCancel}
                     onClick={this.handleClick}
                     value={this.state.value}
                     onChange={value => this.setState({ value })}

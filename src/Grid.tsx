@@ -89,6 +89,11 @@ class Grid extends React.PureComponent {
         this.svg = init(this.div!);
     }
 
+    cancel = (curr: string) => {
+        this.svg.selectAll(".focus-box").remove()
+        removeRect({ class: curr, svg: this.svg })
+    }
+
     switchObject = (prev: string | null, curr: string) => {
         this.svg.selectAll(".focus-box").remove();
         if (prev) {
