@@ -1,33 +1,30 @@
 {
-    "object1": {
+    "06-Dishes": {
         "block": [
-            "2-5",
-            "3-5",
-            "4-5",
-            "5-5",
-            "6-5",
-            "7-5",
-            "8-5",
-            "9-5",
-            "10-5",
-            "100-5",
-            "101-5",
-            "102-5",
-            "103-5",
-            "104-5",
-            "105-5"
+
+            "161-1",
+            "162-1",
+            "163-1",
+            "164-1",
+            "165-1",
+            "166-1",
+            "167-1",
+            "168-1",
+            "169-1",
+            "170-1"
+
         ],
-        "description": "What the frek. What the frek. What the frek. What the frek. What the frek.",
-        "quantity": 5000
+        "description": "Prepared Dishes for Kitchen use, DO NOT MOVE",
+        "quantity": 1500
     },
-    "object2": {
-        "block": ["9-5", "10-5", "11-5"],
-        "description": "hjgjhgjhgjhg",
+    "07-Cutlery": {
+        "block": ["150-5", "151-5", "151-6","152-5","152-6","153-5","153-6"],
+        "description": "Cutlery after cleansing, will be moved to level 5 cutlery storeroom",
         "quantity": 5000
     },
     "object3": {
-        "block": ["100-2", "101-2", "102-2"],
-        "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
+        "block": ["100-2", "101-2", "102-2","5-2"],
+        "description": "Nil",
         "quantity": 5000
     },
     "object4": {
