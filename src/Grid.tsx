@@ -46,7 +46,7 @@ const removeRect = (options: {
     svg: d3.Selection<BaseType, {}, null, undefined>;
 }) => {
     const { class: className, svg } = options;
-    svg.selectAll(`.rect-${className}`).remove();
+    svg.selectAll(className).remove();
 };
 
 const init = (div: HTMLDivElement) => {
@@ -66,55 +66,62 @@ const init = (div: HTMLDivElement) => {
         });
     });
 
-    /* Object.entries(room).forEach(([key, object]) => {
-        object.forEach(block => {
-            const [x, y] = block.split("-").map(Number);
-            drawRect({
-                class: key,
-                col: x,
-                row: y,
-                svg,
-                fill: "rgba(0, 255, 0, 0.6)"
-            });
-        });
-    }); */
-
     return svg;
 };
 
-class Grid extends React.PureComponent {
+interface IProps {
+    selectedRooms: string[];
+}
+
+class Grid extends React.PureComponent<IProps> {
     private div!: HTMLDivElement | null;
     private svg!: d3.Selection<BaseType, {}, null, undefined>;
     componentDidMount() {
         this.svg = init(this.div!);
     }
 
-    cancel = (curr: string) => {
-        this.svg.selectAll(".focus-box").remove()
-        removeRect({ class: curr, svg: this.svg })
+    componentDidUpdate(prevProps: IProps) {
+        if (prevProps.selectedRooms !== this.props.selectedRooms) {
+            this.cancel()
+            prevProps.selectedRooms.forEach(name => {
+                removeRect({ class: `.rect-${name}`, svg: this.svg });
+            });
+            const blocksToDraw = this.props.selectedRooms.map(name => ({
+                name,
+                room: (room as IRoom)[name]
+            }));
+            blocksToDraw.forEach(blockToDraw => {
+                const {
+                    name,
+                    room: { block, color }
+                } = blockToDraw;
+                block.forEach((b, index) => {
+                    const [col, row] = b.split("-").map(Number);
+                    drawRect({
+                        class: `rect-${name}`,
+                        col,
+                        row,
+                        svg: this.svg,
+                        fill: color
+                    });
+                });
+            });
+        }
     }
 
-    switchObject = (prev: string | null, curr: string) => {
+    cancel = () => {
         this.svg.selectAll(".focus-box").remove();
-        if (prev) {
-            removeRect({ class: prev, svg: this.svg });
+    };
+
+    slideToRoom = (value: string) => {
+        this.cancel()
+        const blockToSlide = (room as IRoom)[value];
+        if (blockToSlide) {
+            const [col, row] = blockToSlide.block[0].split("-").map(Number);
+            const x = col * OFFSET + START_X - window.screen.width / 2;
+            const y = row * OFFSET + START_Y;
+            window.scroll({ top: y, left: x, behavior: "smooth" });
         }
-        const blockToDraw = (room as IRoom)[curr].block;
-        blockToDraw.forEach((block, index) => {
-            const [col, row] = block.split("-").map(Number);
-            drawRect({
-                class: `rect-${curr}`,
-                col,
-                row,
-                svg: this.svg,
-                fill: "rgba(220, 50, 50, 1)"
-            });
-            if (index === 0) {
-                const x = col * OFFSET + START_X - window.screen.width / 2;
-                const y = row * OFFSET + START_Y;
-                window.scroll({ top: y, left: x, behavior: "smooth" });
-            }
-        });
     };
 
     focusObject = (col: number, row: number) => {

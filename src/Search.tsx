@@ -1,129 +1,62 @@
 import { Select, Icon, Button } from "antd";
 import * as React from "react";
 import room from "./Room.json";
-import styled from "styled-components";
-import placeholder from "./placeholder.jpg";
+import { StyledWrapper } from "./SearchStyle";
 import { IRoom } from "./type";
 import { START_X, START_Y, OFFSET } from "./Grid";
-
-const StyledWrapper = styled.div`
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-    .search-wrapper {
-        padding: 10px;
-        margin-left: 10px;
-        margin-top: 10px;
-        background: rgba(255, 255, 255, 1);
-        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
-    }
-
-    .info {
-        ul {
-            position: relative;
-            padding: 0;
-            margin-top: 10px;
-            margin-bottom: 0;
-            list-style: none;
-            li {
-                &:last-child,
-                &:first-child {
-                    border-bottom: none;
-                }
-                &.halfwidth {
-                    width: 65%;
-                }
-                &.pic {
-                    position: absolute;
-                    right: 0px;
-                    top: 0px;
-                }
-                display: flex;
-                justify-content: space-between;
-                border-bottom: 1px solid #eeeeee;
-                padding: 5px 0;
-                &.description {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    .content {
-                        margin-left: 10px;
-                        max-width: 310px;
-                        text-align: left;
-                    }
-                }
-                &.block {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    .position {
-                        display: flex;
-                        max-height: 90px;
-                        overflow-y: auto;
-                        flex-wrap: wrap;
-                        max-width: 320px;
-                        div {
-                            user-select: none;
-                            cursor: pointer;
-                            font-size: 12px;
-                            padding: 0 8px;
-                            width: 60px;
-                            margin-right: 4px;
-                            margin-bottom: 4px;
-                            border: 1px solid #eee;
-                            border-radius: 2px;
-                            &:hover {
-                                border: 1px solid #888;
-                            }
-                        }
-                    }
-                }
-                .title {
-                    opacity: 0.7;
-                }
-                .placeholder {
-                    width: 80px;
-                    height: 60px;
-                    background: url(${placeholder}) no-repeat center;
-                    background-size: contain;
-                }
-            }
-        }
-    }
-`;
+import SelectModal from "./SelectModal";
 
 interface IProps {
-    onChange?: (value: string) => void;
-    value: string | null;
-    onClick: (col: number, row: number) => void;
+    focusRoom: (value: string) => void;
+    onRoomChange: (value: string[]) => void;
+    value: string[];
+    slideToBlock: (col: number, row: number) => void;
     onCancel: () => void;
 }
 
-export default class Search extends React.PureComponent<IProps> {
-    handleChange = (value: any) => {
-        this.props.onChange && this.props.onChange(value);
+interface IState {
+    visible: boolean;
+    currentRoom: string;
+    currentBlock: string;
+}
+
+export default class Search extends React.PureComponent<IProps, IState> {
+    constructor(props: IProps) {
+        super(props);
+        this.state = {
+            visible: false,
+            currentRoom: "",
+            currentBlock: ""
+        };
+    }
+    focusRoom = (value: string) => {
+        this.setState({ currentRoom: value, currentBlock: "" });
+        this.props.focusRoom(value);
     };
-    handleClick = (col: number, row: number) => {
+    slideToBlock = (col: number, row: number) => {
         const x = col * OFFSET + START_X - window.screen.width / 2;
         const y = row * OFFSET + START_Y;
         window.scroll({ top: y, left: x, behavior: "smooth" });
-        this.props.onClick(col, row);
+        this.props.slideToBlock(col, row);
+        this.setState({ currentBlock: `${col}-${row}` });
+    };
+    handleCancel = () => {
+        this.setState({ currentRoom: "" });
+        this.props.onCancel();
     };
     render() {
-        const { description, quantity } = this.props.value
-            ? (room as IRoom)[this.props.value]
+        const { description, quantity } = this.state.currentRoom
+            ? (room as IRoom)[this.state.currentRoom]
             : { description: "", quantity: undefined };
 
-        const block = this.props.value
-            ? (room as IRoom)[this.props.value].block
+        const block = this.state.currentRoom
+            ? (room as IRoom)[this.state.currentRoom].block
                   .map(s => s.split("-").map(Number))
                   .map(([x, y]) => ({ x, y }))
             : [];
-        console.log(block);
+        const color = this.state.currentRoom
+            ? (room as IRoom)[this.state.currentRoom].color
+            : "#FFFFFF";
         return (
             <StyledWrapper>
                 <div className="search-wrapper">
@@ -137,11 +70,11 @@ export default class Search extends React.PureComponent<IProps> {
                                 .toLowerCase()
                                 .indexOf(input.toLowerCase()) >= 0
                         }
-                        onChange={this.handleChange}
-                        style={{ width: 240 }}
-                        value={this.props.value || ''}
+                        onChange={value => this.focusRoom(value as string)}
+                        style={{ width: 180 }}
+                        value={this.state.currentRoom || ""}
                     >
-                        {Object.keys(room).map((objectName, index) => {
+                        {this.props.value.map((objectName, index) => {
                             return (
                                 <Select.Option
                                     value={objectName}
@@ -152,8 +85,17 @@ export default class Search extends React.PureComponent<IProps> {
                             );
                         })}
                     </Select>
-                    <Button onClick={this.props.onCancel}>Cancel</Button>
-                    {this.props.value && (
+                    <Button onClick={this.handleCancel}>Cancel</Button>
+                    <Button onClick={() => this.setState({ visible: true })}>
+                        Select from all
+                    </Button>
+                    <SelectModal
+                        onOk={() => this.setState({ visible: false })}
+                        onChange={this.props.onRoomChange}
+                        visible={this.state.visible}
+                        value={this.props.value}
+                    />
+                    {this.state.currentRoom && (
                         <div className="info">
                             <ul>
                                 <li className="pic">
@@ -161,7 +103,13 @@ export default class Search extends React.PureComponent<IProps> {
                                 </li>
                                 <li className="halfwidth">
                                     <span className="title">Item</span>
-                                    <span>{this.props.value}</span>
+                                    <span className="item-name">
+                                        {this.state.currentRoom}
+                                        <div
+                                            className="color"
+                                            style={{ background: color }}
+                                        />
+                                    </span>
                                 </li>
                                 <li className="halfwidth">
                                     <span className="title">Quantity</span>
@@ -181,8 +129,15 @@ export default class Search extends React.PureComponent<IProps> {
                                         {block.map(({ x, y }, i) => {
                                             return (
                                                 <div
+                                                    className={
+                                                        this.state
+                                                            .currentBlock ===
+                                                        `${x}-${y}`
+                                                            ? "selected"
+                                                            : "normal"
+                                                    }
                                                     key={i}
-                                                    onClick={this.handleClick.bind(
+                                                    onClick={this.slideToBlock.bind(
                                                         this,
                                                         x,
                                                         y

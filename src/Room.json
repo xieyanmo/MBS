@@ -15,266 +15,319 @@
 
         ],
         "description": "Prepared Dishes for Kitchen use, DO NOT MOVE",
-        "quantity": 1500
+        "quantity": 1500,
+        "color": "#FF0000"
     },
     "07-Cutlery": {
         "block": ["150-5", "151-5", "151-6","152-5","152-6","153-5","153-6"],
         "description": "Cutlery after cleansing, will be moved to level 5 cutlery storeroom",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#DD1100"
     },
     "object3": {
         "block": ["100-2", "101-2", "102-2","5-2"],
         "description": "Nil",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#BB2200"
     },
     "object4": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object5": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object6": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object7": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object8": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object9": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object10": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object11": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object12": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object13": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object14": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object15": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object16": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object17": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object18": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object19": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object20": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object21": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object22": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object23": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object24": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object25": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object26": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object27": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object28": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object29": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object30": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object31": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object32": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object33": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object34": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object35": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object36": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object37": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object38": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object39": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object40": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object41": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object42": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object43": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object44": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object45": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object46": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object47": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object48": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object49": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object50": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object51": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object52": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     },
     "object53": {
         "block": ["100-2", "101-2", "102-2"],
         "description": "jgjgjhgjhgjhgjhgjhgjhgjhgj",
-        "quantity": 5000
+        "quantity": 5000,
+        "color": "#FF0000"
     }
 }

@@ -13,21 +13,13 @@ const MapWrapper = styled.div`
     background: url(${map});
 `;
 
-class App extends Component<{}, { value: string | null }> {
+class App extends Component<{}, { selectedRooms: string[] }> {
     private gird: Grid | null = null;
     constructor(props: {}) {
         super(props);
         this.state = {
-            value: null
+            selectedRooms: []
         };
-    }
-
-    componentDidUpdate(prevProps: {}, prevState: { value: string | null }) {
-        const { value: currValue } = this.state;
-        const { value: prevValue } = prevState;
-        if (this.gird && currValue) {
-            this.gird.switchObject(prevValue, currValue);
-        }
     }
 
     handleClick = (col: number, row: number) => {
@@ -35,20 +27,27 @@ class App extends Component<{}, { value: string | null }> {
     };
 
     handleCancel = () => {
-        this.gird && this.state.value && this.gird.cancel(this.state.value);
-        this.setState({ value: null });
+        this.gird && this.gird.cancel();
+    };
+
+    focusRoom = (value: string) => {
+        this.gird && this.gird.slideToRoom(value);
     };
 
     render() {
         return (
             <div className="App">
                 <Search
+                    focusRoom={this.focusRoom}
                     onCancel={this.handleCancel}
-                    onClick={this.handleClick}
-                    value={this.state.value}
-                    onChange={value => this.setState({ value })}
+                    slideToBlock={this.handleClick}
+                    value={this.state.selectedRooms}
+                    onRoomChange={selectedRooms => this.setState({ selectedRooms })}
                 />
-                <Grid ref={grid => (this.gird = grid)} />
+                <Grid
+                    ref={grid => (this.gird = grid)}
+                    selectedRooms={this.state.selectedRooms}
+                />
                 <MapWrapper />
             </div>
         );
