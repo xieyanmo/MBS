@@ -46,7 +46,7 @@ const removeRect = (options: {
     svg: d3.Selection<BaseType, {}, null, undefined>;
 }) => {
     const { class: className, svg } = options;
-    svg.selectAll(`.${className}`).remove();
+    svg.selectAll(`.rect-${className}`).remove();
 };
 
 const init = (div: HTMLDivElement) => {
@@ -98,7 +98,7 @@ class Grid extends React.PureComponent {
         blockToDraw.forEach((block, index) => {
             const [col, row] = block.split("-").map(Number);
             drawRect({
-                class: curr,
+                class: `rect-${curr}`,
                 col,
                 row,
                 svg: this.svg,
